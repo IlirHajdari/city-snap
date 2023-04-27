@@ -1,3 +1,4 @@
+
 header {
   width: 100%;
   height: 40px;
@@ -19,4 +20,8 @@ section {
 #mapContainer {
   height: 800px;
   width: 100%;
+}
+
+#place {
+  color: black;
 }
