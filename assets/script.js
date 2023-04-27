@@ -11,8 +11,8 @@ function getApi(place) {
     })
     .then(function(data) {
         console.log(data);
-    })
-}
+    });
+};
 
 searchButton.addEventListener('click', function(event) {
     event.preventDefault();
