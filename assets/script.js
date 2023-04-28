@@ -28,7 +28,7 @@ function getApi(place) {
 };
 
 function searchPLace() {
-    map.jumpTo({center: coordinates, zoom: 10});
+    map.jumpTo({center: coordinates, zoom: 8});
 }
 console.log(coordinates + "<<<<<<<<<< after")
 
