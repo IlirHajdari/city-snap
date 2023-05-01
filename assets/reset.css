@@ -3,20 +3,22 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
-  color: white;
 }
 
 html {
   height: 100%;
 }
 
+
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
 }
 
 input,
@@ -27,8 +29,9 @@ textarea,
 button,
 pre,
 code {
-  font-size: 100%;
   font-family: inherit;
+  font-size: 100%;
+
 }
 
 ol,
