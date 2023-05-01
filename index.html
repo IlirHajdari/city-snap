@@ -5,29 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <link href="./assets/reset.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- <link href="./dist/output.css" rel="stylesheet"/> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Animal Migration Program</title>
+
   </head>
-  <body class="h-full">
-    <section>
-      <header class="absolute ring-1 ring-blue-400 ring-opacity-70 ring-offset-11 w-full h-10 bg-blue-200 bg-opacity-70 z-10">
-        <h1 class="ml-5 absolute inset-2 text-white z-20">City Search<span> |</span><span> Get historical information, from any city</span> </h1>
+  <body>
+    <section id="topPage">
+      <header class="h-16 z-20 w-full absolute bg-gradient-to-b from-blue-200 to-transparent">
+        <h1 class="absolute top-1.5 left-8 text-white text-4xl font-[Liberation Mono]">City Search</h1> 
+        <!-- <h2 class="absolute font-[Liberation Mono] top-2.5 text-xl text-white bg-green-700 bg-opacity-80 ml-60 w-7/12 h-10 text-center pt-1.5 rounded">Get historical information about any city in the world</h2> -->
       </header>
 
-      <form class="block absolute top-11 right-0 mr-1 text-right z-10" id="searchForm">
-        <label class="w-20 text-white">Choose a City: </label>
-        <input class="border rounded w-48" type="text" id="place">
-        <button id="searchBtn" class="bg-blue-200 bg-opacity-70 rounded  border-white w-16 text-black" type="submit">Search</button>
+      <form class="z-20 absolute right-5 top-16" id="searchForm">
+        <label class="text-white">Choose a City: </label>
+        <input class="rounded p-2 h-6" type="text" id="place">
+        <button class="bg-blue-200 w-20 bg-opacity-60 border-transparent rounded text-white" id="searchBtn" type="submit">Search</button>
       </form>
     </section>
 
-    <section class="scale-125 xl:w-full top-4 h-screen z-0" id="mapContainer"></section>
+    <section class="z-10 w-full h-screen absolute scale-110" id="mapContainer">
+      <div id="history1"></div>
+
+    </section>
 
     <script src="./assets/script.js" type="text/javascript"></script>
   </body>
