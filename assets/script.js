@@ -7,7 +7,7 @@ let map = new mapboxgl.Map({
   container: "mapContainer",
   style: "mapbox://styles/mapbox/streets-v12",
   center: [00, 00],
-  zoom: 2,
+  zoom: -1,
 });
 
 let input;
