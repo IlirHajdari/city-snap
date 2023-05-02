@@ -34,8 +34,16 @@ function getApi(place) {
     });
 }
 
+function displayPopup() {
+  var popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat(coordinates)
+    .setHTML("<h1>Hello World</h1>")
+    .addTo(map);
+}
+
 function searchPLace() {
   map.jumpTo({ center: coordinates });
+  displayPopup("Coordinates: ${coordinates[1]}, ${coordinates[0]}");
 }
 console.log(coordinates + "<<<<<<<<<< after");
 
