@@ -42,13 +42,50 @@ function displayPopup() {
 }
 
 function searchPLace() {
+
 map.jumpTo({ center: coordinates });
-displayPopup("Coordinates: ${coordinates[1]}, ${coordinates[0]}");
-console.log(coordinates + "<<<<<<<<<< after");
+  displayPopup();
+  getWikiApi(coordinates);
 }
+console.log(coordinates + "<<<<<<<<<< after");
 
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
   input = placeInput.val();
   getApi(input);
 });
+
+function getWikiApi() {
+  var lat = coordinates[1];
+  var lng = coordinates[0];
+  console.log ("Lat " + lat)
+  console.log ("Lng " + lng)
+
+  var url = "https://en.wikipedia.org/w/api.php"; 
+
+  var params = {
+      action: "opensearch",
+      search: "Hampi",
+      limit: "5",
+      namespace: "0",
+      format: "json"
+  };
+  
+  url = url + "?origin=*";
+  Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+  
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    })
+}
+
+
+      
+    
+
+
+
