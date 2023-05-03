@@ -1,8 +1,11 @@
 var placeInput = $("#place");
 var searchButton = document.querySelector("#searchBtn");
+var imgEl = document.createElement('img');
+var h1El = document.createElement('h1');
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic3dteXRob3MiLCJhIjoiY2xndms2eWphMmpoYTNqbWticjVlcng1NyJ9.6Qgtg_xsE15r4ab7V1p2qg";
-
+  
+//Mapbox map API, gets the globe UI
 let map = new mapboxgl.Map({
   container: "mapContainer",
   style: "mapbox://styles/mapbox/streets-v12",
@@ -12,9 +15,10 @@ let map = new mapboxgl.Map({
 
 let input;
 let coordinates;
-
+let popup;
 let zoom;
 
+//Mapbox Geolocation API, gets the coordinates
 function getApi(place) {
   var geoCodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?proximity=ip&access_token=pk.eyJ1IjoiZmVsaXh3aWxsZW0iLCJhIjoiY2xneWRxN2thMDhqeTNscGlxazZteDd3NSJ9.-h_-S4qFSy_pnbqneET0IA`;
   fetch(geoCodingUrl)
@@ -34,54 +38,47 @@ function getApi(place) {
     });
 }
 
-function displayPopup() {
-  var popup = new mapboxgl.Popup({ closeOnClick: false })
+//Google search API, gets the pictures
+function getSearchApi(input) {
+  var key = 'AIzaSyCldIOTfefzKCP9ENRj4kuTnQ_XHEyfwxc'
+  var googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${key}&cx=46d2cf46487a44022&q=${input}&searchType=image`
+    
+    fetch(googleSearchUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        console.log(data.items[0].link);
+        displayPopup(data);
+      })
+  }
+
+//Creates cards on the queries searched
+function displayPopup(data) {
+    popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setHTML('<h1>' + input + '</h1>')
     .setLngLat(coordinates)
-    .setHTML("<h1>Hello World</h1>")
     .addTo(map);
+    var popUpContent = document.querySelector(".mapboxgl-popup-content");
+    imgEl.setAttribute('src', data.items[0].link);
+    popUpContent.appendChild(imgEl)
 }
-
+// h1El.setContent = input;
+// popUpContent.appendChild(h1El);
+//jumps to specified coordinates
 function searchPLace() {
-
-map.jumpTo({ center: coordinates });
-  displayPopup();
-  getWikiApi(coordinates);
+  map.jumpTo({ center: coordinates });
+  console.log(coordinates + "<<<<<<<<<< after");
 }
-console.log(coordinates + "<<<<<<<<<< after");
 
+// First, user inputs a search, runs both Geolocation and search API
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
   input = placeInput.val();
+  getSearchApi(input);
   getApi(input);
 });
-
-function getWikiApi() {
-  var lat = coordinates[1];
-  var lng = coordinates[0];
-  console.log ("Lat " + lat)
-  console.log ("Lng " + lng)
-
-  var url = "https://en.wikipedia.org/w/api.php"; 
-
-  var params = {
-      action: "opensearch",
-      search: "Hampi",
-      limit: "5",
-      namespace: "0",
-      format: "json"
-  };
-  
-  url = url + "?origin=*";
-  Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
-  
-  fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    })
-}
 
 
       
