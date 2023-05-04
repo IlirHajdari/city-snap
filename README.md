@@ -4,7 +4,8 @@ This application is a location search app on a global scale. The technologies th
 
 Application link https://ilirhajdari.github.io/city-snap/
 
-![127 0 0 1_5501_index html](https://user-images.githubusercontent.com/90164142/236096386-f1869cf5-bf86-4255-9414-e707abe89671.png)
+![project1](https://user-images.githubusercontent.com/90164142/236334351-19e09dc0-5af5-4908-8542-10bc90bcc693.png)
+
 
 ## Authors
 Felix Willem - https://github.com/FelixW01
