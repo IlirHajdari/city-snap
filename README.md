@@ -6,7 +6,9 @@ Application link https://ilirhajdari.github.io/city-snap/
 
 ![127 0 0 1_5501_index html](https://user-images.githubusercontent.com/90164142/236096386-f1869cf5-bf86-4255-9414-e707abe89671.png)
 
-Authors
+## Authors
 Felix Willem - https://github.com/FelixW01
+
 Ilir Hajdari - https://github.com/IlirHajdari
+
 Herb Sneed - https://github.com/HerbSneed
