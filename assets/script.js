@@ -6,7 +6,7 @@ var h1El = document.createElement("h1");
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic3dteXRob3MiLCJhIjoiY2xndms2eWphMmpoYTNqbWticjVlcng1NyJ9.6Qgtg_xsE15r4ab7V1p2qg";
 
-//Mapbox map API, gets the globe UI
+//Mapbox map API, gets the globe UI #1
 let map = new mapboxgl.Map({
   container: "mapContainer",
   style: "mapbox://styles/mapbox/streets-v12",
@@ -19,7 +19,7 @@ let coordinates;
 let popup;
 let zoom;
 
-//Mapbox Geolocation API, gets the coordinates
+//Mapbox Geolocation API, gets the coordinates #3
 function getApi(place) {
   var geoCodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?proximity=ip&access_token=pk.eyJ1IjoiZmVsaXh3aWxsZW0iLCJhIjoiY2xneWRxN2thMDhqeTNscGlxazZteDd3NSJ9.-h_-S4qFSy_pnbqneET0IA`;
   fetch(geoCodingUrl)
@@ -39,7 +39,7 @@ function getApi(place) {
     });
 }
 
-//Google search API, gets the pictures
+//Google search API, gets the pictures #4
 function getSearchApi(input) {
   var key = "AIzaSyCldIOTfefzKCP9ENRj4kuTnQ_XHEyfwxc";
   var googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${key}&cx=46d2cf46487a44022&q=${input}&searchType=image`;
@@ -54,7 +54,7 @@ function getSearchApi(input) {
     });
 }
 
-//Creates cards on the queries searched
+//Creates cards on the queries searched #6
 function displayPopup(data) {
   if (popup) popup.remove();
 
@@ -70,12 +70,12 @@ function displayPopup(data) {
 }
 
 
-//jumps to specified coordinates
+//jumps to specified coordinates #5
 function searchPLace() {
   map.jumpTo({ center: coordinates });
 }
 
-// First, user inputs a search, runs both Geolocation and search API
+// First, user inputs a search, runs both Geolocation and search API #2
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
   input = placeInput.val();
@@ -84,7 +84,7 @@ searchButton.addEventListener("click", function (event) {
   storeData(input)
 });
 
-//Home button for the user to click to zoom out
+//Home button for the user to click to zoom out #8
 homeBtn.addEventListener('click', function(event) {
   event.preventDefault();
   map = new mapboxgl.Map({
@@ -95,7 +95,7 @@ homeBtn.addEventListener('click', function(event) {
   })
 })
 
-//localstorage
+//localstorage #7
 function storeData(input) {
   let searchData = JSON.parse(localStorage.getItem('searchData')) || [];
 
