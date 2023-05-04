@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./assets/style.css" rel="stylesheet">
-    <title>Animal Migration Program</title>
+    <title>City Snap</title>
 
   </head>
   <body>
     <section id="min-w-full box-border">
       <header class="h-14 z-20 w-screen absolute bg-gradient-to-b from-blue-200 to-transparent">
-        <h1 class="absolute top-1.5 left-5 text-white text-4xl font-[Liberation Mono] drop-shadow">CITY SNAP</h1> 
+        <button class="bg-blue-200 active:bg-blue-400 w-20 bg-opacity-60 border-transparent rounded text-white" id="searchBtn" type="submit">Search</button>
       </header>
 
       <form class="flex justify-center sm:justify-end box-border z-20 relative w-full top-16 h-20" id="searchForm">
@@ -25,6 +25,7 @@
     </section>
 
     <section class="box-content  min-h-screen z-10 top-5 min-w-full absolute scale-110" id="mapContainer"></section>
+
 
     <script src="./assets/script.js" type="text/javascript"></script>
   </body>

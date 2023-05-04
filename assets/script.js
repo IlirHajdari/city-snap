@@ -1,4 +1,5 @@
 var placeInput = $("#place");
+var homeBtn = document.querySelector('#homeBtn');
 var searchButton = document.querySelector("#searchBtn");
 var imgEl = document.createElement("img");
 var h1El = document.createElement("h1");
@@ -10,7 +11,7 @@ let map = new mapboxgl.Map({
   container: "mapContainer",
   style: "mapbox://styles/mapbox/streets-v12",
   center: [00, 00],
-  zoom: -1,
+  zoom: 2,
 });
 
 let input;
@@ -82,4 +83,24 @@ searchButton.addEventListener("click", function (event) {
   input = placeInput.val();
   getSearchApi(input);
   getApi(input);
+  storeData(input)
 });
+
+//Home button for the user to click to zoom out
+homeBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  map = new mapboxgl.Map({
+    container: "mapContainer",
+    style: "mapbox://styles/mapbox/streets-v12",
+    center: [00, 00],
+    zoom: 2,
+  })
+})
+
+//localstorage
+function storeData(input) {
+  let searchData = JSON.parse(localStorage.getItem('searchData')) || [];
+
+   searchData.push(input);
+   localStorage.setItem('searchData', JSON.stringify(searchData));
+}
