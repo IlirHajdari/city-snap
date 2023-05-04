@@ -50,7 +50,6 @@ function getSearchApi(input) {
     })
     .then(function (data) {
       console.log(data);
-      console.log(data.items[0].link);
       displayPopup(data);
     });
 }
@@ -74,7 +73,6 @@ function displayPopup(data) {
 //jumps to specified coordinates
 function searchPLace() {
   map.jumpTo({ center: coordinates });
-  console.log(coordinates + "<<<<<<<<<< after");
 }
 
 // First, user inputs a search, runs both Geolocation and search API
