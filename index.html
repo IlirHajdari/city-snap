@@ -8,15 +8,14 @@
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- <link href="./dist/output.css" rel="stylesheet"/> -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Animal Migration Program</title>
+    <title>City Snap</title>
 
   </head>
   <body>
     <section id="topPage">
       <header class="h-14 z-20 w-full absolute bg-gradient-to-b from-blue-200 to-transparent">
-        <h1 class="absolute top-1.5 left-8 text-white text-4xl font-[Liberation Mono]">City Search</h1> 
+        <button class="absolute top-1.5 left-8 text-white text-4xl font-[Liberation Mono]" id="homeBtn">City Snap</button> 
       </header>
 
       <form class="z-20 absolute right-5 top-16" id="searchForm">
@@ -24,10 +23,9 @@
         <input class="rounded p-2 h-6 outline-none" type="text" id="place">
         <button class="bg-blue-200 active:bg-blue-400 w-20 bg-opacity-60 border-transparent rounded text-white" id="searchBtn" type="submit">Search</button>
       </form>
+      
     </section>
-
     <section class="z-10 w-full h-screen absolute scale-110" id="mapContainer">
-
     </section>
 
     <script src="./assets/script.js" type="text/javascript"></script>
