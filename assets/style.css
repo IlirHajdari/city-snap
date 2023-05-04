@@ -1,10 +1,4 @@
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Archivo', sans-serif;
-  font-size: 16px;
+button.mapboxgl-popup-close-button{
+  margin-right: 6px;
+  margin-top: 4px;
 }
