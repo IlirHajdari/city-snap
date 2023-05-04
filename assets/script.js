@@ -65,9 +65,11 @@ function displayPopup(data) {
   var popUpContent = document.querySelector(".mapboxgl-popup-content");
   imgEl.setAttribute("src", data.items[0].link);
   popUpContent.appendChild(imgEl);
+  popUpContent.setAttribute('style', 'background-color: white; border-radius: 8px; text-align: center; padding: 5px; fontFamily: Liberation-Mono')
+  imgEl.setAttribute('style', 'border-radius: 5px')
 }
-// h1El.setContent = input;
-// popUpContent.appendChild(h1El);
+
+
 //jumps to specified coordinates
 function searchPLace() {
   map.jumpTo({ center: coordinates });
