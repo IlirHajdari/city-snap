@@ -11,7 +11,7 @@ let map = new mapboxgl.Map({
   container: "mapContainer",
   style: "mapbox://styles/mapbox/streets-v12",
   center: [00, 00],
-  zoom: 2,
+  zoom: 1,
 });
 
 let input;
@@ -40,7 +40,7 @@ function getApi(place) {
 }
 
 //Google search API, gets the pictures #4
-function getSearchApi(input) {
+function getSearchApi(input) {``
   var key = "AIzaSyCldIOTfefzKCP9ENRj4kuTnQ_XHEyfwxc";
   var googleSearchUrl = `https://www.googleapis.com/customsearch/v1?key=${key}&cx=46d2cf46487a44022&q=${input}&searchType=image`;
 
@@ -49,7 +49,6 @@ function getSearchApi(input) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       displayPopup(data);
     });
 }
@@ -91,14 +90,19 @@ homeBtn.addEventListener('click', function(event) {
     container: "mapContainer",
     style: "mapbox://styles/mapbox/streets-v12",
     center: [00, 00],
-    zoom: 2,
+    zoom: 1,
   })
 })
 
 //localstorage #7
 function storeData(input) {
   let searchData = JSON.parse(localStorage.getItem('searchData')) || [];
+  
+
 
    searchData.push(input);
    localStorage.setItem('searchData', JSON.stringify(searchData));
+   console.log(searchData);
 }
+
+
