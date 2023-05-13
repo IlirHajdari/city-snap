@@ -5,6 +5,8 @@ var imgEl = document.createElement("img");
 var h1El = document.createElement("h1");
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic3dteXRob3MiLCJhIjoiY2xndms2eWphMmpoYTNqbWticjVlcng1NyJ9.6Qgtg_xsE15r4ab7V1p2qg";
+var cityHist = document.getElementById('userCities'); 
+var searchData = [];
 
 //Mapbox map API, gets the globe UI #1
 let map = new mapboxgl.Map({
@@ -94,15 +96,30 @@ homeBtn.addEventListener('click', function(event) {
   })
 })
 
+function retrieveData() {
+  var getData = JSON.parse(localStorage.getItem('searchData'));
+  console.log(getData);
+
+  for (var i = 0; i < getData.length; i++) {
+    var oldCities = document.createElement("button");
+    oldCities.innerHTML = getData[i];
+    oldCities.setAttribute('style', 'background-color: #E8F0FE; border-radius: 12px; min-width: 60%; position: absolute; left: 20%; height: 30px');
+    cityHist.appendChild(oldCities);
+    oldCities.addEventListener("click", function () {
+      // input = this.textContent;
+    });
+  }
+}
+
 //localstorage #7
 function storeData(input) {
-  let searchData = JSON.parse(localStorage.getItem('searchData')) || [];
-  
-
-
    searchData.push(input);
-   localStorage.setItem('searchData', JSON.stringify(searchData));
    console.log(searchData);
+   localStorage.setItem('searchData', JSON.stringify(searchData));
+   var cities = document.createElement("button");
+   cities.setAttribute('style', 'background-color: #E8F0FE; border-radius: 12px; min-width: 60%; position: absolute; left: 20%; height: 30px');
+   cities.innerHTML = input;
+   cityHist.appendChild(cities);
 }
 
 
